@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hitung Zikir - Counter Ramadhan</title>
+
+  <link rel="stylesheet" href="bootstrap.css" />
+  <link rel="stylesheet" href="zikir-style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Zikir Counter</h1>
+      <p>Dzikir Setelah Shalat</p>
+    </div>
+  </header>
+
+  <main class="py-4">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        
+        <div class="col-12 col-lg-6">
+          <section class="counter-section">
+            <div class="counter-container">
+
+              <div class="counter-display">
+                <p class="counter-label">Jumlah Zikir Anda Sekarang:</p>
+                <div class="counter-number" id="counterNumber">0</div>
+              </div>
+
+              <div class="target-display">
+                <p>Target: <span class="target-number">33</span></p>
+              </div>
+
+              <div class="button-group">
+                <button class="btn btn-add" id="btnAdd">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-text">Tambah</span>
+                </button>
+
+                <button class="btn btn-reset" id="btnReset">
+                  <span class="btn-icon">↺</span>
+                  <span class="btn-text">Reset</span>
+                </button>
+              </div>
+
+              <div class="notification-area">
+                <div class="notification-area" id="notificationArea"></div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <section class="dhikr-list-section">
+
+            <article class="dhikr-card">
+              <div class="dhikr-badge">Dzikir 1</div>
+              <p class="dhikr-arabic" dir="rtl">
+                سُبْحَانَ اللهِ وَالْحَمْدُ لِلهِ وَلَا إِلٰهَ إِلَّا اللهُ وَاللهُ أَكْبَرُ
+              </p>
+              <p class="dhikr-translation">
+                Glory be to Allah, and praise be to Allah, and there is no god but Allah, and Allah is the Greatest.
+              </p>
+            </article>
+
+            <article class="dhikr-card">
+              <div class="dhikr-badge">Dzikir 2</div>
+              <p class="dhikr-arabic" dir="rtl">
+                اللّٰهُمَّ أَجِرْنَا مِنَ النَّارِ ت
+              </p>
+              <p class="dhikr-translation">
+                O Allah, protect us from the Fire (3 or 7 times).
+              </p>
+            </article>
+
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="bootstrap.min.js"></script>
+  <script src="zikir-script.js"></script>
+</body>
+</html>
