@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Zakat - Hitung Zakat Anda</title>
+    
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="kalkulator-zakat.css">
+</head>
+
+<body>
+    <header class="header-gradient py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold text-white mb-3">Zakat Calculator</h1>
+                    <p class="lead text-white-soft">Calculate your zakat easily and accurately</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    
+                    <div class="card custom-card mb-4 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h4 fw-semibold mb-3 text-primary-custom">Assalamu'alaikum</h2>
+                            <p class="text-muted mb-0">
+                                This calculator helps you determine whether you are required to pay zakat 
+                                and how much you need to give. Zakat is one of the pillars of Islam and is
+                                calculated as 2.5% of eligible wealth.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card custom-card shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            
+                            <div class="mb-4">
+                                <h3 class="h5 fw-semibold mb-3 section-title">
+                                    <span class="title-accent"></span>
+                                    Select Zakat Type
+                                </h3>
+                                <select id="zakatType" class="form-select form-select-lg custom-select">
+                                    <option value="income">Income Zakat</option>
+                                    <option value="gold">Gold Zakat</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <h3 class="h5 fw-semibold mb-3 section-title">
+                                    <span class="title-accent"></span>
+                                    Gold Price Reference
+                                </h3>
+                                <div class="mb-3">
+                                    <label for="goldPrice" class="form-label">
+                                        Gold Price per Gram
+                                        <small class="text-muted">(for nisab calculation)</small>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text custom-input-prefix">Rp</span>
+                                        <input 
+                                            type="number" 
+                                            class="form-control custom-input" 
+                                            id="goldPrice" 
+                                            placeholder="Input gold price per gram"
+                                            value="1078000"
+                                            min="0"
+                                            step="1000"
+                                        >
+                                    </div>
+                                    <small class="form-text text-muted">Current market gold price</small>
+                                </div>
+                            </div>
+
+                            <div id="incomeForm" class="form-section">
+                                <h3 class="h5 fw-semibold mb-3 section-title">
+                                    <span class="title-accent"></span>
+                                    Income Details
+                                </h3>
+                                
+                                <div class="alert custom-alert mb-4" role="alert">
+                                    <p class="mb-0 small">
+                                        Income zakat is calculated based on your total monthly earnings. 
+                                        If your annual income reaches the nisab (equivalent to 85 grams of gold), 
+                                        you are required to pay zakat of 2.5%.
+                                    </p>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="monthlySalary" class="form-label">Monthly Salary</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text custom-input-prefix">Rp</span>
+                                        <input 
+                                            type="number" 
+                                            class="form-control custom-input" 
+                                            id="monthlySalary" 
+                                            placeholder="Enter your monthly salary"
+                                            value="0"
+                                            min="0"
+                                            step="100000"
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="otherIncome" class="form-label">Other Monthly Income</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text custom-input-prefix">Rp</span>
+                                        <input 
+                                            type="number" 
+                                            class="form-control custom-input" 
+                                            id="otherIncome" 
+                                            placeholder="Other Income"
+                                            value="0"
+                                            min="0"
+                                            step="100000"
+                                        >
+                                    </div>
+                                    <small class="form-text text-muted">Including freelance work, rent, investments, etc.</small>
+                                </div>
+                            </div>
+
+                            <div id="goldForm" class="form-section" style="display: none;">
+                                <h3 class="h5 fw-semibold mb-3 section-title">
+                                    <span class="title-accent"></span>
+                                    Detail Emas
+                                </h3>
+                                
+                                <div class="alert custom-alert mb-4" role="alert">
+                                    <p class="mb-0 small">
+                                        Gold zakat is obligatory if you own at least 85 grams of gold 
+                                        for one full year. The zakat rate is 2.5% of the total gold value.
+                                    </p>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="goldAmount" class="form-label">Total Gold Owned</label>
+                                    <div class="input-group input-group-lg">
+                                        <input 
+                                            type="number" 
+                                            class="form-control custom-input" 
+                                            id="goldAmount" 
+                                            placeholder="Enter the amount of gold"
+                                            value="0"
+                                            min="0"
+                                            step="0.1" >
+                                        <span class="input-group-text custom-input-suffix">grams</span>
+                                    </div>
+                                    <small class="form-text text-muted">The total weight of gold you own</small>
+                                </div>
+                            </div>
+
+                            <div id="errorMessage" class="alert alert-danger custom-error" style="display: none;">
+                                <i class="bi bi-exclamation-circle-fill me-2"></i>
+                                <span id="errorText"></span>
+                            </div>
+
+                            <div class="row g-3 mt-4">
+                                <div class="col-md-6">
+                                    <button id="calculateBtn" class="btn btn-primary-custom btn-lg w-100 fw-semibold">
+                                        📊 Calculate Zakat
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="resetBtn" class="btn btn-secondary-custom btn-lg w-100 fw-semibold">
+                                        🔄 Reset
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="resultCard" class="card custom-card result-card shadow-lg" style="display: none;">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <h3 class="h4 fw-bold text-primary-custom">Your Zakat Summary</h3>
+                            </div>
+
+                            <div class="result-content bg-white rounded-4 p-4 mb-3">
+                                <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+                                    <span class="text-muted">Wealth/Income:</span>
+                                    <span class="fw-bold fs-5" id="totalValue">Rp 0</span>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+                                    <span class="text-muted">Nisab:</span>
+                                    <span class="fw-bold fs-5" id="nisabValue">Rp 0</span>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center py-3 status-row rounded-3">
+                                    <span class="text-muted fw-semibold">Zakat Status:</span>
+                                    <span id="zakatStatus" class="badge status-badge">-</span>
+                                </div>
+                                
+                                <div class="divider-gradient my-3"></div>
+                                
+                                <div class="d-flex justify-content-between align-items-center py-3">
+                                    <span class="fw-semibold fs-5">Zakat Amount:</span>
+                                    <span class="fw-bold zakat-amount" id="zakatAmount">Rp 0</span>
+                                </div>
+                            </div>
+
+                            <div class="alert custom-note mb-0" role="alert">
+                                <strong>💡 Catatan:</strong>This is an estimated calculation. 
+                                Please consult a qualified scholar for specific cases.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="bootstrap.min.js"></script>
+    <script src="kalkulator-zakat.js"></script>
+</body>
+</html>
