@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shalat & Qur'an - Ramadhan To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🌙</span>
+                <h2 class="logo-text">Ramadhan<br>To-Do List</h2>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="shalat-quran.html" class="nav-link active">
+                <span class="nav-icon">🕌</span>
+                <span class="nav-text">Shalat & Qur'an</span>
+            </a>
+            <a href="puasa.html" class="nav-link">
+                <span class="nav-icon">🌙</span>
+                <span class="nav-text">Puasa</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="footer-text">Ramadhan Mubarak 1446 H</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div class="header-top">
+                <div class="header-title">
+                    <h1>Shalat Wajib & Baca Qur'an</h1>
+                    <p class="header-subtitle">Pantau ibadah harian Anda hari ini</p>
+                </div>
+                <div class="header-icon">
+                    <span class="ramadhan-icon">☪️</span>
+                </div>
+            </div>
+            
+            <div class="daily-summary">
+                <div class="summary-card">
+                    <div class="summary-content">
+                        <span class="summary-label">Progress Harian</span>
+                        <span class="summary-value" id="dailyProgress">0%</span>
+                    </div>
+                    <div class="summary-status">
+                        <span id="dailyStatus" class="status-badge">Belum ada aktivitas</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="two-column-layout">
+            
+            <div class="column-left">
+                <div class="card shalat-card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-icon">🕌</span>
+                            Shalat Lima Waktu
+                        </h2>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="checklist-container">
+                            <div class="checklist-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="shalat-checkbox" data-shalat="subuh">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="shalat-name">Subuh</span>
+                                    <span class="shalat-time">04:30 - 05:50</span>
+                                </label>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="shalat-checkbox" data-shalat="dzuhur">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="shalat-name">Dzuhur</span>
+                                    <span class="shalat-time">12:00 - 15:15</span>
+                                </label>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="shalat-checkbox" data-shalat="ashar">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="shalat-name">Ashar</span>
+                                    <span class="shalat-time">15:15 - 18:00</span>
+                                </label>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="shalat-checkbox" data-shalat="maghrib">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="shalat-name">Maghrib</span>
+                                    <span class="shalat-time">18:00 - 19:15</span>
+                                </label>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="shalat-checkbox" data-shalat="isya">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="shalat-name">Isya</span>
+                                    <span class="shalat-time">19:15 - 04:30</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Progress Shalat</span>
+                                <span class="progress-percentage" id="shalatPercentage">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="shalatProgress"></div>
+                            </div>
+                            <p class="progress-status" id="shalatStatus">Belum optimal</p>
+                        </div>
+
+                        <button class="btn btn-primary" id="saveShalat">
+                            <span class="btn-icon">💾</span>
+                            Simpan Progress Shalat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column-right">
+                <div class="card quran-card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="card-icon">📖</span>
+                            Baca Qur'an
+                        </h2>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Target Halaman Hari Ini</label>
+                            <input 
+                                type="number" 
+                                id="targetPages" 
+                                class="form-input" 
+                                placeholder="Contoh: 20"
+                                min="1"
+                                value="20"
+                            >
+                            <small class="form-hint">Qur'an memiliki 604 halaman</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Halaman yang Sudah Dibaca</label>
+                            <input 
+                                type="number" 
+                                id="readPages" 
+                                class="form-input" 
+                                placeholder="Contoh: 10"
+                                min="0"
+                                value="0"
+                            >
+                        </div>
+
+                        <div class="checkbox-group">
+                            <label class="checkbox-label-simple">
+                                <input type="checkbox" id="targetComplete" class="checkbox-simple">
+                                <span class="checkbox-text">✅ Tandai target hari ini selesai</span>
+                            </label>
+                        </div>
+
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Progress Baca Qur'an</span>
+                                <span class="progress-percentage" id="quranPercentage">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill quran-fill" id="quranProgress"></div>
+                            </div>
+                            <p class="progress-status" id="quranStatus">Masih bisa ditambah</p>
+                        </div>
+
+                        <button class="btn btn-secondary" id="saveQuran">
+                            <span class="btn-icon">💾</span>
+                            Simpan Progress Qur'an
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="successMessage" class="success-message">
+            <div class="success-content">
+                <span class="success-icon">✅</span>
+                <span class="success-text">Data berhasil disimpan!</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

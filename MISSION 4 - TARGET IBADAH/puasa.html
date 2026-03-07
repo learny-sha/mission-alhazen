@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puasa - Ramadhan To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🌙</span>
+                <h2 class="logo-text">Ramadhan<br>To-Do List</h2>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="shalat-quran.html" class="nav-link">
+                <span class="nav-icon">🕌</span>
+                <span class="nav-text">Shalat & Qur'an</span>
+            </a>
+            <a href="puasa.html" class="nav-link active">
+                <span class="nav-icon">🌙</span>
+                <span class="nav-text">Puasa</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="footer-text">Ramadhan Mubarak 1446 H</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div class="header-top">
+                <div class="header-title">
+                    <h1>Puasa Ramadhan</h1>
+                    <p class="header-subtitle">Pantau puasa Anda selama 30 hari Ramadhan</p>
+                </div>
+                <div class="header-icon">
+                    <span class="ramadhan-icon">🌙</span>
+                </div>
+            </div>
+            
+            <div class="daily-summary">
+                <div class="summary-card">
+                    <div class="summary-content">
+                        <span class="summary-label">Progress Puasa</span>
+                        <span class="summary-value" id="puasaProgress">0%</span>
+                    </div>
+                    <div class="summary-status">
+                        <span id="puasaStatus" class="status-badge">Awal yang baik</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="puasa-content">
+            <div class="card puasa-card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon">🌙</span>
+                        Kalender Puasa Ramadhan 1446 H
+                    </h2>
+                </div>
+                
+                <div class="card-body">
+                    <div class="current-day-section">
+                        <div class="current-day-info">
+                            <div class="day-indicator">
+                                <span class="day-label">Hari ke</span>
+                                <span class="day-number" id="currentDay">1</span>
+                                <span class="day-suffix">Ramadhan</span>
+                            </div>
+                            <div class="today-checkbox">
+                                <label class="checkbox-label-large">
+                                    <input type="checkbox" id="todayFasting" class="checkbox-large">
+                                    <span class="checkbox-custom-large"></span>
+                                    <span class="checkbox-text-large">Sudah puasa hari ini</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calendar-section">
+                        <h3 class="calendar-title">Kalender 30 Hari</h3>
+                        <div class="calendar-grid" id="calendarGrid">
+                        </div>
+                    </div>
+
+                    <div class="progress-section-large">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress 30 Hari Ramadhan</span>
+                            <span class="progress-percentage" id="puasaPercentage">0%</span>
+                        </div>
+                        <div class="progress-bar-large">
+                            <div class="progress-fill-large" id="puasaProgressBar"></div>
+                        </div>
+                        <div class="progress-info">
+                            <span id="puasaDays">0</span> dari 30 hari
+                        </div>
+                        <p class="progress-status-large" id="puasaStatusText">Awal yang baik, tetap semangat!</p>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" id="savePuasa">
+                        <span class="btn-icon">💾</span>
+                        Simpan Progress Puasa
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="successMessage" class="success-message">
+            <div class="success-content">
+                <span class="success-icon">✅</span>
+                <span class="success-text">Data berhasil disimpan!</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
